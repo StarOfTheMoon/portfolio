@@ -1,0 +1,7 @@
+Django==1.11.2
+django-makemessages-xgettext==0.1.1
+django-imagekit==4.0.1
+psycopg2==2.7.1
+pytz==2017.2
+Pillow==2.6.1
+
