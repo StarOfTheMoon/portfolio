@@ -1,0 +1,37 @@
+{% load compress static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-widthinitial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="sarah abderemane's portfolio">
+		<meta name="author" content="sarah abderemane">
+		<link rel="icon" href="../../favicon.ico">
+		<title>sarah abderemane's portfolio</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		{% compress css %}
+			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/_variables.scss' %}" />
+			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/base.scss' %}" />
+			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/_homepage.scss' %}" />
+
+		{% endcompress %}
+		<!-- icones -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!-- fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Hind|Philosopher|Rokkitt|Sanchez" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			{% block content %}{% endblock %}
+		</div>
+		<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+		<script type="text/javascript" src="slick/slick.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+	</body>
+</html>
