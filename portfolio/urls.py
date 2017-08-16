@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^project/(?P<id>[0-9])/$', views.project_detail, name='detail'),
 ]

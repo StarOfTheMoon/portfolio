@@ -3,33 +3,33 @@
 
 {% block content %}
 <div class='row'>
-	<header class='col-12'>
-		<h1>Sarah Abderemane</h1>
-		<p>{% trans 'Fullstack Developer' %}</p>
-	</header>
-	<div class="projects col-12">
-	{% for p in projects %}
-		<div class='project col-12'>
-			<div class="text">
-				<h2 class='title'>{{p.title}}</h2>
-				<p class=''>{{p.subtitle}}</p>
-				<p class=''>{{p.description}}</p>
-			</div>
+	<section class="top col-12">
+		<header class=''>
+			<h1>Sarah Abderemane</h1>
+			<p>{% trans 'Fullstack Developer' %}</p>
+		</header>
+	</section>
+	<section id="all-projects" class="all-projects col-12">
+		<div class="d-flex projects row">
+		{% for p in projects %}
+			<div class="project {% cycle 'first col-5' 'second offset-2 col-5' %}">
+				<div class="text left">
+					<h2 class='title'>{{p.title}}</h2>
+					<p class=''>{{p.subtitle}}</p>
+				</div>
 
-			<img class="img-project" src="{{p.img_header.image.url}}">
-			<div class="tags col-12">
-			{% for t in p.tags.all %}
-				<span>{{t.name}}</span>
-			{% endfor %}
-			</div>
-			<a class="col-12" href="{{p.link}}">{% trans 'view project' %}</a>
-			<div class="img-others col-12">
-			{% for i in p.img_others.all %}
-				<img class="img-other" src="{{i.image.url}}">
-			{% endfor %}
-			</div>
-		</div>	
-	{% endfor %}
-	</div>	
+				<img class="img-project" src="{{p.img_header.image.url}}">
+				<div class="text right">
+					<div class="tags col-12">
+					{% for t in p.tags.all %}
+						<span>{{t.name}}</span>
+					{% endfor %}
+					</div>
+					<a class="col-12" href="project/{{p.pk}}">{% trans 'view project' %}</a>
+				</div>
+			</div>	
+		{% endfor %}
+		</div>
+	</section>	
 </div>	
 {% endblock %}

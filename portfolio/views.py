@@ -9,3 +9,7 @@ from portfolio.models import Project
 def index(request):
 	projects = Project.objects.all()
 	return render(request, 'index.html', {'projects': projects})
+
+def project_detail(request, id):
+	project = Project.objects.get(pk=id)
+	return render(request, 'project-detail.html',{'project': project})
