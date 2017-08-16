@@ -12,22 +12,25 @@
 	<section id="all-projects" class="all-projects col-12">
 		<div class="d-flex projects row">
 		{% for p in projects %}
+		<a class="transparent" href="project/{{p.pk}}">
 			<div class="project {% cycle 'first col-5' 'second offset-2 col-5' %}">
 				<div class="text left">
 					<h2 class='title'>{{p.title}}</h2>
 					<p class=''>{{p.subtitle}}</p>
+					<hr class="trait">
 				</div>
 
 				<img class="img-project" src="{{p.img_header.image.url}}">
 				<div class="text right">
 					<div class="tags col-12">
 					{% for t in p.tags.all %}
-						<span>{{t.name}}</span>
+						<span>#{{t.name}}</span>
 					{% endfor %}
 					</div>
 					<a class="col-12" href="project/{{p.pk}}">{% trans 'view project' %}</a>
 				</div>
-			</div>	
+			</div>
+		</a>	
 		{% endfor %}
 		</div>
 	</section>	

@@ -2,28 +2,28 @@
 {% load i18n %}
 
 {% block content %}
-<div class='row'>
 	
-		<div class='project detail col-12'>
-			<div class="text">
-				<h2 class='title'>{{project.title}}</h2>
-				<p class=''>{{project.subtitle}}</p>
-				<p class=''>{{project.description}}</p>
-			</div>
+<div class='detail row'>
+	<div class="text col-6">
+		<h2 class='title pink'>{{project.title}}</h2>
+		<p class=''>{{project.subtitle}}</p>
+		<p class=''>{{project.description}}</p>
+		<hr class='trait'>
+	</div>
 
-			<img class="img-project" src="{{project.img_header.image.url}}">
-			<div class="tags col-12">
-			{% for t in project.tags.all %}
-				<span>{{t.name}}</span>
-			{% endfor %}
-			</div>
-		</div>
-		<a class="col-12" href="{{project.link}}">{% trans 'view project' %}</a>
-		<div class="img-others col-12">
-		{% for i in project.img_others.all %}
-			<img class="img-other" src="{{i.image.url}}">
-		{% endfor %}
-		</div>	
 	
+	<div class="slider offset-1 col-5">
+	<img class="img-project" src="{{project.img_header.image.url}}">
+	{% for i in project.img_others.all %}
+		<img class="img-project" src="{{i.image.url}}">
+	{% endfor %}
+	</div>	
+	<div class="tags col-12">
+	{% for t in project.tags.all %}
+		<span>#{{t.name}}</span>
+	{% endfor %}
+	</div>
 </div>
+<a class="" href="{{project.link}}">{% trans 'view project' %}</a>
+
 {% endblock %}
