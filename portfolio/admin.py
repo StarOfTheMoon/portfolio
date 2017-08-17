@@ -9,6 +9,10 @@ admin.site.site_title = 'Portfolio Sarah Admin'
 admin.site.site_header = 'Portfolio Sarah Admin'
 
 
-admin.site.register(Tag)
+#admin.site.register(Tag)
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    fields = ('name',)
+
 admin.site.register(Image)
 admin.site.register(Project)
