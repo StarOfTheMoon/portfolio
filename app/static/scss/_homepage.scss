@@ -26,13 +26,6 @@ a {
 	color: inherit;
 }
 
-.trait {
-	border-top: 2px solid $pink;
-	width: 50px;
-	text-align: left;
-	margin-left: 0;
-}
-
 .bg-black {
 	background: black;
 }
@@ -41,12 +34,11 @@ section {
 	height: 90vh;
 }
 
-
  /*********************
   * all projects
  *********************/
 .all-projects {
-	padding-top: 70px;
+	padding-top: 90px;
 }
 
 .project {
@@ -66,12 +58,12 @@ section {
 			&.left {
 				//transform: scale(1.2,1.2);
 				transform: translateX(-15px) translateY(-45px);
-				transition: 1s all;
+				transition: 0.8s all;
 			}
 			&.right {
 				//transform: scale(1.2,1.2);
 				transform: translateX(15px) translateY(45px);
-				transition: 1s all;
+				transition: 0.8s all;
 			}
 		}
 	}
@@ -79,7 +71,6 @@ section {
 	.text {
 		position: absolute;
 		z-index: 2;
-		//display: none;
 		&.left {
 			top: 20px;
 			left: -10px;
@@ -87,6 +78,12 @@ section {
 		&.right {
 			bottom: 20px;
 			right: -10px;
+			.link {
+				color: $pink;
+				&:hover {
+					color: white;
+				}
+			}
 		}
 	}
 
@@ -111,11 +108,6 @@ section {
 		opacity: 0.4;
 		object-fit: cover;
 	}
-	// .img-other {
-	// 	width: 150px;
-	// 	height: 150px;
-	// 	object-fit: cover;
-	// }
 
 }	
 

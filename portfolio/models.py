@@ -15,8 +15,9 @@ class Tag(models.Model):
 	name = models.CharField("Nom",max_length=100)
 	slug = models.SlugField(default=None, null=True, blank=True)
 
-	def __unicode__(self):
-		return "%s " % (self.name)	
+	@property
+	def tagname(self):
+		return "%s " % (self.name)
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.name)

@@ -19,48 +19,69 @@
 		{% endcompress %}
 		<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/menu_sideslide.css' %}"/>
 		<!-- icones -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<!-- fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Hind|Philosopher|Rokkitt|Sanchez" rel="stylesheet">
 	</head>
 	<body>
-		<nav class="navbar navbar-toggleable-md navbar-inverse bg-black fixed-top">
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="navbar-brand" href="#">Navbar</a>
-
-			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/#all-projects">Projects</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact</a>
-					</li>	
-				</ul>
-				<!-- <form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="text" placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form> -->
-			</div>
-		</nav>
 		<div class="container">
-			{% block content %}{% endblock %}
+			<div class="menu-wrap">
+				<nav class="menu">
+					<div class="icon-list">
+						<a class="nav-link" href="/">Home</a>
+						<a class="nav-link" href="/#all-projects">Projects</a>						
+						<a class="nav-link" href="#">About</a>
+						<a class="nav-link" href="#">Contact</a>
+					</div>
+				</nav>
+				<button class="close-button" id="close-button">Close Menu</button>
+			</div>
+			<button class="menu-button" id="open-button">
+				<hr class="trait white first">
+				<hr class="trait white second">
+			</button>
+			<div class="content-wrap">
+				<div class="content">
+					{% block content %}{% endblock %}
+					<button onclick="topFunction()" id="btn-top" title="Go to top">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 349.629 349.629" xml:space="preserve">
+					<g>
+						<g>
+							<polygon points="174.827,73.433 0,253.42 23.434,276.19 174.827,120.318 326.216,276.196 349.629,253.42   " fill="#FFFFFF"/></polygon>
+						</g>
+					</g>
+					</button>
+				</div>
+			</div>
 		</div>
 		<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+		<script type="text/javascript">
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function() {scrollFunction()};
+
+			function scrollFunction() {
+			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        document.getElementById("btn-top").style.display = "block";
+			    } else {
+			        document.getElementById("btn-top").style.display = "none";
+			    }
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+			    document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+			    document.documentElement.scrollTop = 0; // For IE and Firefox
+			}
+		</script>
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-		<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 	</body>
 </html>
