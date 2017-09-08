@@ -42,20 +42,22 @@
 				<hr class="trait white first">
 				<hr class="trait white second">
 			</button>
-			<div class="content-wrap">
+			<div id="content-wrap" class="content-wrap">
 				<div class="content">
 					{% block content %}{% endblock %}
-					<button onclick="topFunction()" id="btn-top" title="Go to top">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 349.629 349.629" xml:space="preserve">
-					<g>
-						<g>
-							<polygon points="174.827,73.433 0,253.42 23.434,276.19 174.827,120.318 326.216,276.196 349.629,253.42   " fill="#FFFFFF"/></polygon>
-						</g>
-					</g>
-					</button>
+					
 				</div>
 			</div>
+			<button onclick="topFunction()" id="btn-top" title="Go to top">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 349.629 349.629" xml:space="preserve">
+				<g>
+					<g>
+						<polygon points="174.827,73.433 0,253.42 23.434,276.19 174.827,120.318 326.216,276.196 349.629,253.42   " fill="#FFFFFF"/>
+					</g>
+				</g>
+			</button>
 		</div>
+
 		<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
 		<script type="text/javascript">
@@ -63,7 +65,8 @@
 			window.onscroll = function() {scrollFunction()};
 
 			function scrollFunction() {
-			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+			    if (document.getElementById("content-wrap").scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			        document.getElementById("btn-top").style.display = "block";
 			    } else {
 			        document.getElementById("btn-top").style.display = "none";
