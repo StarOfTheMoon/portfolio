@@ -122,8 +122,11 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -25px;
-
+    /*bottom: -25px;*/
+    transform: rotate(90deg);
+    top: 150px;
+    right: -150px;
+    
     display: block;
 
     width: 100%;

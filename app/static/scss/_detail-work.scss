@@ -1,0 +1,52 @@
+.detail {
+	.text {
+		.line {
+			width: 56px;
+			border-top: 6px solid $purple;
+			margin-left: 0;
+			transform: rotate(-90deg);
+			position: relative;
+			left: -64px;
+			top: 51px;
+		}
+		.tags {
+			padding: 0;
+			margin: 2em 0;
+			h3 {
+				font-size: 1.1rem;
+			}
+			> span {
+				display: block;
+			}
+		}
+	}
+	.block-img {
+		.block-content {
+			position: relative;
+			top: -45px;
+			.title {
+				position: absolute;
+				left: 130px;
+				top: 50px;
+				text-transform: uppercase;
+			}
+			.number {
+				position: relative;
+				top: 30px;
+				left: 0;
+			}
+			.img-project {
+				width: 100%;
+				margin-bottom: 1em;
+				max-height: 200px;
+				min-height: 200px;
+				object-fit: cover;
+				&.first {
+					max-height: 400px;
+					min-height: 400px;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}

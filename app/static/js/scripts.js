@@ -7,6 +7,8 @@ $(document).ready(function(){
 	dots: true,
 	arrows: false,
 	infinite: true,
+	vertical: true,
+	verticalSwiping: true
   });
 });
 

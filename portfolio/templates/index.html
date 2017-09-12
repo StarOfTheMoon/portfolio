@@ -3,13 +3,28 @@
 
 {% block content %}
 <div class='row'>
-	<section class="top col-12">
-		<header class=''>
+	<section class="top col-12 d-flex justify-content-center">
+		<div class="col-3">
+			<div class="slider">
+				{% for p in projects %}
+					<a href="/project/{{p.pk}}">
+						<div class="block-img">
+							<span class="number">0{{p.pk}}</span>
+							<img class="img-project" src="{{p.img_header.image.url}}">
+							<span class="name-project">{{p.title}}</span>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+		<header class='col-5'>
 			<h1>Sarah Abderemane</h1>
-			<p>{% trans 'Fullstack Developer' %}</p>
+			<p class="subtitle">{% trans 'Fullstack Developer' %}</p>
+			<p class="headline">{% trans 'The beauty is create and develop what you\'ve been inspired of.' %}</p>
+			<hr class="line">
 		</header>
 	</section>
-	<section id="all-projects" class="all-projects col-12">
+	<!-- <section id="all-projects" class="all-projects col-12">
 		<div class="d-flex projects row">
 		{% for p in projects %}
 		<a class="transparent {% cycle 'col-5' 'offset-2 col-5' %}" href="project/{{p.pk}}">
@@ -33,6 +48,6 @@
 		</a>	
 		{% endfor %}
 		</div>
-	</section>	
+	</section>	 -->
 </div>	
 {% endblock %}

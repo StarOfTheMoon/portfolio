@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
 @import "_variables.scss";
+@import "_detail-work.scss";
 
 body {
 	font-family: 'Hind', 'Verdana', arial, sans-serif;
@@ -38,8 +40,19 @@ nav {
     }
 }
 
+.number {
+    font-family: 'Playfair Display', serif;
+    font-size: 68px;
+    z-index: 2;
+    color: white;
+}
+
 .pink {
 	color: $pink;
+}
+
+.purple {
+    color: $purple;
 }
 
 #btn-top {
