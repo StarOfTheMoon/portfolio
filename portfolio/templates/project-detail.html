@@ -4,7 +4,7 @@
 {% block content %}
 	
 <div class='detail row'>
-	<div class="text offset-1 col-5">
+	<div class="text offset-2 col-4">
 		<hr class='line'>
 		<p class=''>{{project.subtitle}}</p>
 		<p class=''>{{project.description}}</p>
@@ -22,7 +22,7 @@
 	
 	<div class="offset-1 col-4 mr-2 block-img">
 		<div class="block-content">
-			<h2 class='title purple'>{{project.title}}</h2>
+			<h2 class='title'>{{project.title}}</h2>
 			<span class="number">0{{project.pk}}</span>
 			<img class="img-project first" src="{{project.img_header.image.url}}">
 			{% for i in project.img_others.all %}
