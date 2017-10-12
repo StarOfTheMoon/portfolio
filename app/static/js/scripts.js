@@ -1,4 +1,7 @@
 $(document).ready(function(){
+/*********************
+  * slider home
+ *********************/
   $('.slider').slick({
   	slidesToShow: 1,
 	slidesToScroll: 1,
@@ -10,5 +13,15 @@ $(document).ready(function(){
 	vertical: true,
 	verticalSwiping: true
   });
+
+/*********************
+  * grid masonry
+ *********************/
+  $('.grid').masonry({
+	  // options
+	  itemSelector: '.grid-item',
+	  columnWidth: 200,
+	  stamp: '.stamp'
+	});
 });
 
