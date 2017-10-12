@@ -7,8 +7,12 @@ from portfolio.models import Project
 
 
 def index(request):
-	projects = Project.objects.all()[:5]
+	projects = Project.objects.all()
 	return render(request, 'index.html', {'projects': projects})
+
+def works(request):
+	works = Project.objects.all()
+	return render(request, 'works.html',{'works': works})
 
 def project_detail(request, id):
 	project = Project.objects.get(pk=id)

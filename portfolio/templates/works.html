@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<div class="offset-2 col-10 projects grid">
+	{% for w in works %}
+		<a class="project {% cycle 'grid-item large' 'grid-item large' 'grid-item' 'grid-item' %}" href="{% url 'detail' id=w.pk %}">
+			<h2>{{w.title}}</h2>
+		</a>
+	{% endfor %}
+</div>
+{% endblock %} 
+
+{% block others_scripts %}
+<script src="{% static 'js/vendor/masonry.pkgd.min.js' %}"></script>
+{% endblock %}

@@ -31,7 +31,7 @@
 				<nav class="menu">
 					<div class="icon-list">
 						<a class="nav-link" href="/">Home</a>
-						<a class="nav-link" href="/#all-projects">Projects</a>						
+						<a class="nav-link" href="{% url 'works' %}">Works</a>
 						<a class="nav-link" href="#">About</a>
 						<a class="nav-link" href="#">Contact</a>
 					</div>
@@ -58,8 +58,7 @@
 			</button>
 		</div>
 
-		<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+		
 		<script type="text/javascript">
 			// When the user scrolls down 20px from the top of the document, show the button
 			window.onscroll = function() {scrollFunction()};
@@ -80,11 +79,12 @@
 			}
 		</script>
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-		<script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/vendor/slick/slick.min.js' %}"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/vendor/classie.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/vendor/main.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+		{% block others_scripts %}{% endblock %}
 	</body>
 </html>
