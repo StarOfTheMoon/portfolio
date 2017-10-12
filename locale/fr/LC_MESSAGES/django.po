@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 14:49+0200\n"
+"POT-Creation-Date: 2017-10-11 20:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: portfolio/templates/index.html:8
+#: portfolio/templates/index.html:22
+msgid "Fullstack Developer"
+msgstr "Developpeuse Fullstack"
+
+#: portfolio/templates/index.html:23
+msgid "The beauty is to create and develop what we were inspired of."
+msgstr "La beauté c'est de créer et développer ce par quoi l'on a été inspiré."
+
+#: portfolio/templates/index.html:45 portfolio/templates/project-detail.html:19
+#: portfolio/templates/work.html:24
 msgid "view project"
 msgstr "voir le projet"

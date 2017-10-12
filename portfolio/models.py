@@ -11,9 +11,15 @@ from django.utils.translation import ugettext_lazy as _
 class Image(models.Model):
 	image = models.ImageField()
 
+	def __str__(self):
+		return (self.image)
+
 class Tag(models.Model):
 	name = models.CharField("Nom",max_length=100)
 	slug = models.SlugField(default=None, null=True, blank=True)
+
+	def __str__(self):
+		return (self.name)
 
 	@property
 	def tagname(self):
@@ -34,6 +40,9 @@ class Project(models.Model):
 	img_others = models.ManyToManyField(Image, related_name='imgothers', blank=True)
 	tags = models.ManyToManyField(Tag, blank=True)
 	link = models.URLField("lien", blank=True)
+
+	def __str__(self):
+		return (self.title)
 
 	class Meta :
 		verbose_name = "Projet"
