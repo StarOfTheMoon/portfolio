@@ -15,7 +15,7 @@ h2 {
 }
 
 a {
-	color: $pink;
+	color: $purple;
 	&:hover {
 		color: white;
 		text-decoration: none;
@@ -48,7 +48,8 @@ section {
 			    top: 1.8em;
 			    right: -14em;
 			    height: 90%;
-			    opacity: 0.08;
+			    fill: rgba(204,204,204,0.3);
+			    opacity: 0.11;
 			    stroke-width: 3;
 			}
 			.text {

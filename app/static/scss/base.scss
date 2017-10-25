@@ -3,6 +3,12 @@
 @import "_detail-work.scss";
 @import "_works.scss";
 
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
 	font-family: 'Hind', 'Verdana', arial, sans-serif;
 	background: black;
@@ -54,6 +60,20 @@ nav {
 
 .purple {
     color: $purple;
+}
+
+
+.btn {
+    &.view-project {
+        border: 2px solid $darkBrown;
+        color: $darkBrown;
+        border-radius: 0px;
+        outline: none;
+        &:hover {
+            border: 2px solid white;
+            color: white;
+        }
+    }
 }
 
 #btn-top {

@@ -2,14 +2,63 @@
 {% load i18n %}
 {% load static %}
 
+
 {% block content %}
-<div class="offset-2 col-10 projects grid">
+<!-- <div class="offset-2 col-10 projects grid">
 	{% for w in works %}
 		<a class="project {% cycle 'grid-item large' 'grid-item large' 'grid-item' 'grid-item' %}" href="{% url 'detail' id=w.pk %}">
 			<h2>{{w.title}}</h2>
 		</a>
 	{% endfor %}
+</div> -->
+<div class="cont s--inactive col-12 projects">
+  <!-- cont inner start -->
+  <div class="cont__inner">
+  	{% for w in works %}
+    <!-- el start -->
+    <div class="el">
+      <div class="el__overflow">
+        <div class="el__inner">
+          <div class="el__bg" style="background-image: url('{{w.img_header.image.url}}'); background-size: cover; background-repeat: no-repeat;"></div>
+          <div class="el__preview-cont">
+            <h2 class="el__heading">{{w.title}}</h2>
+          </div>
+          <div class="el__content">
+            <div class="el__text">
+            	<div class='col-12 detail'>
+					<div class="text">
+						<hr class='line'>
+						<p class=''>{{w.subtitle}}</p>
+						<p class=''>{{w.description}}</p>
+
+						<div class="tags">
+						<h3>Tags</h3>
+						{% for t in w.tags.all %}
+							<span>#{{t.name}}</span>
+						{% endfor %}
+						</div>
+						
+						<a class="btn view-project" href="{{w.link}}">{% trans 'view project' %}</a>
+					</div>
+				</div>
+        	</div>
+            <div class="el__close-btn"></div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index">
+        <div class="el__index-back">{{w.pk}}</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index={{w.pk}}>{{w.pk}}</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
+    {% endfor %}
+  </div>
+  <!-- cont inner end -->
 </div>
+
 {% endblock %} 
 
 {% block others_scripts %}
