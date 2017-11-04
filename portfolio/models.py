@@ -40,9 +40,14 @@ class Project(models.Model):
 	img_others = models.ManyToManyField(Image, related_name='imgothers', blank=True)
 	tags = models.ManyToManyField(Tag, blank=True)
 	link = models.URLField("lien", blank=True)
+	slug = models.SlugField(default=None, null=True, blank=True)
 
 	def __str__(self):
 		return (self.title)
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.name)
+		super(Tag, self).save(*args, **kwargs)
 
 	class Meta :
 		verbose_name = "Projet"
