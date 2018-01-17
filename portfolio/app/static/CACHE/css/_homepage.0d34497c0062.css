@@ -1,0 +1,100 @@
+/*-------------*
+ *  Colors
+ *-------------*/
+/*********************
+  * general styles
+ *********************/
+/* line 7, app/static/scss/_homepage.scss */
+h1 {
+  color: #51354A;
+  font-family: 'Philosopher'; }
+
+/* line 12, app/static/scss/_homepage.scss */
+h2 {
+  font-size: 2.5em; }
+
+/* line 17, app/static/scss/_homepage.scss */
+a {
+  color: #51354A; }
+  /* line 19, app/static/scss/_homepage.scss */
+  a:hover {
+    color: white;
+    text-decoration: none; }
+
+/* line 25, app/static/scss/_homepage.scss */
+.transparent {
+  color: inherit; }
+
+/* line 29, app/static/scss/_homepage.scss */
+.bg-black {
+  background: black; }
+
+/* line 33, app/static/scss/_homepage.scss */
+section {
+  height: 90vh; }
+  /* line 35, app/static/scss/_homepage.scss */
+  section.top {
+    padding-top: 90px;
+    /*--------------------*
+		 * header
+		 *--------------------*/
+    /*--------------------*
+		 * slider
+		 *--------------------*/ }
+    /* line 40, app/static/scss/_homepage.scss */
+    section.top header {
+      position: relative; }
+      /* line 42, app/static/scss/_homepage.scss */
+      section.top header .headline {
+        font-size: 36px;
+        font-family: 'Playfair Display', serif; }
+      /* line 46, app/static/scss/_homepage.scss */
+      section.top header .computer {
+        position: absolute;
+        top: 1.8em;
+        right: -14em;
+        height: 90%;
+        fill: rgba(204, 204, 204, 0.3);
+        opacity: 0.11;
+        stroke-width: 3; }
+      /* line 55, app/static/scss/_homepage.scss */
+      section.top header .text {
+        position: absolute;
+        z-index: 1; }
+        /* line 58, app/static/scss/_homepage.scss */
+        section.top header .text .line {
+          width: 56px;
+          border-top: 6px solid #51354A;
+          margin-left: 0; }
+    /* line 69, app/static/scss/_homepage.scss */
+    section.top .slider {
+      padding: 0;
+      width: 250px;
+      height: 250px;
+      position: relative;
+      top: 4em; }
+      /* line 75, app/static/scss/_homepage.scss */
+      section.top .slider .block-img {
+        margin: 0 0 0 2.5em; }
+        /* line 77, app/static/scss/_homepage.scss */
+        section.top .slider .block-img .number {
+          position: relative;
+          top: 30px;
+          left: 10px; }
+        /* line 82, app/static/scss/_homepage.scss */
+        section.top .slider .block-img .img-project {
+          height: 100%;
+          min-width: 200px;
+          max-width: 200px;
+          max-height: 200px;
+          opacity: 0.4;
+          object-fit: cover; }
+        /* line 90, app/static/scss/_homepage.scss */
+        section.top .slider .block-img .name-project {
+          display: inline-block;
+          transform: rotate(-90deg);
+          position: relative;
+          bottom: 35px;
+          left: -40px;
+          color: white;
+          text-transform: uppercase; }

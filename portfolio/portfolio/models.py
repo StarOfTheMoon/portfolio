@@ -12,7 +12,7 @@ class Image(models.Model):
 	image = models.ImageField()
 
 	def __str__(self):
-		return (self.image)
+		return (str(self.image))
 
 class Tag(models.Model):
 	name = models.CharField("Nom",max_length=100)
@@ -46,8 +46,8 @@ class Project(models.Model):
 		return (self.title)
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(self.name)
-		super(Tag, self).save(*args, **kwargs)
+		self.slug = slugify(self.title)
+		super(Project, self).save(*args, **kwargs)
 
 	class Meta :
 		verbose_name = "Projet"
