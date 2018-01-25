@@ -10,8 +10,12 @@ def index(request):
 	projects = Project.objects.all()
 	return render(request, 'index.html', {'projects': projects})
 
-def works(request):
+def works(request, work=None):
 	works = Project.objects.all()
+	if work:
+		selected = Project.objects.get(slug=work)
+		print(selected)
+		return render(request, 'works.html',{'works': works, 'selected':selected})
 	return render(request, 'works.html',{'works': works})
 
 def project_detail(request, id):
