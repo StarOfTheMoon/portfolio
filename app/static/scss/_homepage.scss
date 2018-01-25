@@ -76,7 +76,7 @@ section {
 				margin: 0 0 0 2.5em;
 				.number {
 					position: relative;
-					top: 30px;
+					top: 55px;
 					left: 10px;
 				}
 				.img-project {
@@ -91,10 +91,11 @@ section {
 					display: inline-block;
 					transform: rotate(-90deg);
 					position: relative;
-					bottom: 35px;
-					left: -40px;
+					bottom: 40px;
+					left: -35px;
 					color: white;
 					text-transform: uppercase;
+					width: 60px;
 				}
 			}
 		}
