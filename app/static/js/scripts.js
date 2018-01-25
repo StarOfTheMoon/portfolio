@@ -41,9 +41,6 @@ $elsArr.forEach(function($el) {
     if (this.classList.contains('s--active')) return;
     $cont.classList.add('s--el-active');
     this.classList.add('s--active');
-    name = $el.querySelector('.el__heading').innerHTML;
-    name = name.toLowerCase().replace(' ','-');
-    window.history.replaceState(null, null, 'http://'+window.location.host+'/projects/'+name); // change l'URL dynamiquement
   });
 });
 
@@ -52,7 +49,6 @@ $closeBtnsArr.forEach(function($btn) {
     e.stopPropagation();
     $cont.classList.remove('s--el-active');
     document.querySelector('.el.s--active').classList.remove('s--active');
-    window.history.replaceState(null, null, 'http://'+window.location.host+'/projects/');
   });
 });
 
