@@ -8,7 +8,7 @@
 		<div class="offset-1 col-3">
 			<div class="slider">
 				{% for p in projects|slice:"4" %}
-					<a href="/project/{{p.pk}}">
+					<a href="/projects/{{p.slug}}">
 						<div class="block-img">
 							<span class="number">0{{p.pk}}</span>
 							<img class="img-project" src="{{p.img_header.image.url}}">
@@ -45,14 +45,6 @@
 				<path d="M127.5,307.999h-32c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h32c4.142,0,7.5-3.358,7.5-7.5   S131.642,307.999,127.5,307.999z" stroke="#FFFFFF"/>
 			</svg>
 
-			<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="computer" version="1.1" id="computer" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px">
-				<path d="M366.933,477.867H307.2V435.2c0-4.71-3.823-8.533-8.533-8.533s-8.533,3.823-8.533,8.533v42.667h-68.267V435.2     c0-4.71-3.823-8.533-8.533-8.533c-4.71,0-8.533,3.823-8.533,8.533v42.667h-59.733c-4.71,0-8.533,3.823-8.533,8.533     s3.823,8.533,8.533,8.533h221.867c4.71,0,8.533-3.823,8.533-8.533S371.644,477.867,366.933,477.867z" stroke="#FFFFFF";/>
-				<path d="M256.256,358.4h-0.085c-4.71,0-8.491,3.823-8.491,8.533s3.866,8.533,8.576,8.533c4.719,0,8.533-3.823,8.533-8.533     S260.975,358.4,256.256,358.4z" stroke="#FFFFFF"/>
-				<path d="M412.1,134.033c1.664,1.664,3.849,2.5,6.033,2.5c2.185,0,4.369-0.836,6.033-2.5c3.336-3.337,3.336-8.73,0-12.066     L407.1,104.9c-3.336-3.337-8.73-3.337-12.066,0c-3.337,3.337-3.337,8.73,0,12.066L412.1,134.033z" stroke="#FFFFFF"/>
-				<path d="M412.1,185.233c1.664,1.664,3.849,2.5,6.033,2.5c2.185,0,4.369-0.836,6.033-2.5c3.336-3.337,3.336-8.73,0-12.066     L355.9,104.9c-3.337-3.337-8.73-3.337-12.066,0c-3.337,3.337-3.337,8.73,0,12.066L412.1,185.233z" stroke="#FFFFFF"/>
-				<path d="M469.333,17.067H42.667C20.736,17.067,0,37.803,0,59.733v307.2C0,388.864,20.736,409.6,42.667,409.6h426.667     c21.931,0,42.667-20.736,42.667-42.667v-307.2C512,37.803,491.264,17.067,469.333,17.067z M494.933,366.933     c0,12.442-13.158,25.6-25.6,25.6H42.667c-12.442,0-25.6-13.158-25.6-25.6v-307.2c0-12.442,13.158-25.6,25.6-25.6h426.667     c12.442,0,25.6,13.158,25.6,25.6V366.933z" stroke="#FFFFFF"/>
-				<path d="M469.333,51.2H42.667c-4.71,0-8.533,3.823-8.533,8.533V332.8c0,4.71,3.823,8.533,8.533,8.533h426.667     c4.71,0,8.533-3.823,8.533-8.533V59.733C477.867,55.023,474.044,51.2,469.333,51.2z M460.8,324.267H51.2v-256h409.6V324.267z" stroke="#FFFFFF"/>
-			</svg> -->
 			<div class="text">
 				<h1>Sarah Abderemane</h1>
 				<p class="subtitle">{% trans 'Fullstack Developer' %}</p>
@@ -61,31 +53,6 @@
 			</div>
 		</header>
 	</section>
-	<!-- <section id="all-projects" class="all-projects col-12">
-		<div class="d-flex projects row">
-		{% for p in projects %}
-		<a class="transparent {% cycle 'col-5' 'offset-2 col-5' %}" href="project/{{p.pk}}">
-			<div class="project {% cycle 'first' 'second' %}">
-				<div class="text left">
-					<h2 class='title'>{{p.title}}</h2>
-					<p class=''>{{p.subtitle}}</p>
-					<hr class="trait">
-				</div>
-
-				<img class="img-project" src="{{p.img_header.image.url}}">
-				<div class="text right">
-					<div class="tags col-12">
-					{% for t in p.tags.all %}
-						<span>#{{t.name}}</span>
-					{% endfor %}
-					</div>
-					<p class="col-12 link" href="project/{{p.pk}}">{% trans 'view project' %}</p>
-				</div>
-			</div>
-		</a>	
-		{% endfor %}
-		</div>
-	</section>	 -->
 </div>	
 {% endblock %}
 

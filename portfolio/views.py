@@ -17,7 +17,3 @@ def works(request, work=None):
 		print(selected)
 		return render(request, 'works.html',{'works': works, 'selected':selected})
 	return render(request, 'works.html',{'works': works})
-
-def project_detail(request, id):
-	project = Project.objects.get(pk=id)
-	return render(request, 'project-detail.html',{'project': project})

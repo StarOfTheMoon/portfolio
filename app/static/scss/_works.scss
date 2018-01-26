@@ -67,7 +67,7 @@ $contentFadeinAT: 0.5s;
   top: 0;
   width: $elW;
   height: 100%;
-  background: #252525;
+  background: transparent;
   transition: transform $moveAT $expandAT, width $expandAT, opacity $moveAT $expandAT, z-index 0s $moveAT + $expandAT;
   will-change: transform, width, opacity;
 

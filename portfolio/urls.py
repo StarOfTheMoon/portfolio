@@ -7,5 +7,4 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^projects/$', views.works, name='works'),
     url(r'^projects/(?P<work>[-\w]+)$', views.works, name='works'),
-    url(r'^project/(?P<id>[0-9])/$', views.project_detail, name='detail'),
 ]
