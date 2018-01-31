@@ -21,9 +21,11 @@ $(document).ready(function(){
 	var $elsArr = [].slice.call(document.querySelectorAll('.el'));
 	var $closeBtnsArr = [].slice.call(document.querySelectorAll('.el__close-btn'));
 
-	setTimeout(function() {
-		$cont.classList.remove('s--inactive');
-	}, 200);
+	if($cont) {
+		setTimeout(function() {
+			$cont.classList.remove('s--inactive');
+		}, 200);
+	}
 
 	$elsArr.forEach(function($el) {
 		$el.addEventListener('click', function() {
@@ -46,7 +48,7 @@ $(document).ready(function(){
 		});
 
 	});
-});
+
 
 $(window).on('load', function(){
 	var $cont = document.querySelector('.cont');
