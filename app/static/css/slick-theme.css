@@ -125,7 +125,7 @@
     /*bottom: -25px;*/
     transform: rotate(90deg);
     top: 150px;
-    right: -150px;
+    right: -130px;
     
     display: block;
 
@@ -194,8 +194,8 @@
     content: '•';
     text-align: center;
 
-    opacity: .25;
-    color: white;
+    opacity: .75;
+    color: #51354A;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
