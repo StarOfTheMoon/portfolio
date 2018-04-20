@@ -2,23 +2,52 @@
 {% load i18n %}
 {% load static %}
 
+{% block nav %}
+<li class="nav-item works">
+	<a class="nav-link active" href="{% url 'works' %}">Works</a>
+</li>
+{% endblock %}
+
 
 {% block content %}
-<div class="cont s--inactive col-12 projects">
-  <!-- cont inner start -->
-  <div class="cont__inner">
-  	{% for w in works %}
-    <!-- el start -->
-    <div class="el">
-      <div class="el__overflow">
-        <div class="el__inner">
-          <div class="el__bg" style="background-image: url('{{w.img_header.image.url}}'); background-size: cover; background-repeat: no-repeat;"></div>
-          <div class="el__preview-cont">
-            <h2 class="el__heading">{{w.title}}</h2>
-          </div>
-          <div class="el__content">
-            <div class="el__text">
-            	<div class='col-12 detail'>
+<div class="offset-2 col-10 projects">
+	<div class="grid">
+		{% for w in works %}
+		<a class="item {% cycle '' '' 'large' 'small-push' '' %}" href="{% url 'works-detail' w.slug %}" data-slug='{{w.slug}}'>
+			<div class="item-content">
+				<div class="project"  style="background-image: url('{{w.img_header.image.url}}'); background-size: cover; background-repeat: no-repeat;">
+					<div class="project-content">
+						<h2>{{w.title}}</h2>
+					</div>
+					<div class="overlay all"></div>
+				</div>
+			</div>
+		</a>   
+		{% endfor %}
+	</div>
+</div>
+<div class="modal-infos">
+	{% include "works-detail.html" %}
+</div>
+<div class="title-block">
+	<h2 class="title-page">Works</h2> 
+</div>
+
+<!-- <div class="cont s--inactive col-12 projects">
+	<!-- cont inner start ->
+	<div class="cont__inner">
+		{% for w in works %}
+		<!-- el start ->
+		<div class="el">
+			<div class="el__overflow">
+				<div class="el__inner">
+					<div class="el__bg" style="background-image: url('{{w.img_header.image.url}}'); background-size: cover; background-repeat: no-repeat;"></div>
+					<div class="el__preview-cont">
+						<h2 class="el__heading">{{w.title}}</h2>
+					</div>
+					<div class="el__content">
+						<div class="el__text">
+							<div class='col-12 detail'>
 					<div class="text">
 						<hr class='line'>
 						<p class=''>{{w.subtitle}}</p>
@@ -34,25 +63,39 @@
 						<a class="btn view-project" href="{{w.link}}">{% trans 'view project' %}</a>
 					</div>
 				</div>
-        	</div>
-            <div class="el__close-btn"></div>
-          </div>
-        </div>
-      </div>
-      <div class="el__index">
-        <div class="el__index-back">{{w.pk}}</div>
-        <div class="el__index-front">
-          <div class="el__index-overlay" data-index={{w.pk}}>{{w.pk}}</div>
-        </div>
-      </div>
-    </div>
-    <!-- el end -->
-    {% endfor %}
-  </div>
-  <!-- cont inner end -->
-</div>
-
+					</div>
+						<div class="el__close-btn"></div>
+					</div>
+				</div>
+			</div>
+			<div class="el__index">
+				<div class="el__index-back">{{w.pk}}</div>
+				<div class="el__index-front">
+					<div class="el__index-overlay" data-index={{w.pk}}>{{w.pk}}</div>
+				</div>
+			</div>
+		</div>
+		<!-- el end ->
+		{% endfor %}
+	</div>
+	<!-- cont inner end ->
+</div> -->
 {% endblock %} 
 
 {% block others_scripts %}
+	<script>
+		$(document).ready(function(){
+			$('.item').click(function(event) {
+				event.preventDefault();
+				$.ajax({
+					url: $(this).attr('href'),
+					type: 'POST',
+					data: {'slug': $(this).attr('href')}
+				}).done(function(response){
+					$('.modal.infos').replaceWith(response);
+					$('.modal.infos').modal('show');
+				})
+			})
+		})
+	</script>
 {% endblock %}

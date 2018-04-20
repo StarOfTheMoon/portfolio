@@ -6,5 +6,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^projects/$', views.works, name='works'),
-    url(r'^projects/(?P<work>[-\w]+)$', views.works, name='works'),
+    url(r'^projects/(?P<slug>[-\w]+)$', views.works_detail, name='works-detail'),
 ]

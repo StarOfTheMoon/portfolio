@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
 @import "_variables.scss";
 @import "_works.scss";
 @import "_responsive.scss";
@@ -11,12 +12,38 @@
 
 body {
 	font-family: 'Hind', 'Verdana', arial, sans-serif;
-	background: black;
-	color: white;
 }
 
+
 nav {
-	font-family: 'Rokkitt';
+	//font-family: 'Rokkitt';
+    &.nav-active {
+        margin-top: 3em;
+        padding: 0.8em 1em;
+    }
+}
+
+.content, .projects {
+    height: 100%;
+}
+
+.title-block {
+    font-family: 'Archivo Black';
+    position: absolute;
+    left: 80px;
+    top: 30px;
+    padding-left: 1em;
+    color: #808080;
+    z-index: 1;
+    h2 {
+        text-transform: uppercase;
+        font-size: 1.5vmax;
+        display: grid;
+        grid-template-columns: repeat(3, 3vmax);
+        grid-auto-rows: 2vmax;
+        align-items: end;
+        justify-items: center;
+    }
 }
 
 .menu-button {
@@ -51,7 +78,7 @@ nav {
     font-family: 'Playfair Display', serif;
     font-size: 68px;
     z-index: 2;
-    color: white;
+    color: $black;
 }
 
 .pink {
@@ -70,8 +97,8 @@ nav {
         border-radius: 0px;
         outline: none;
         &:hover {
-            border: 2px solid white;
-            color: white;
+            border: 2px solid $black;
+            color: $black;
         }
     }
 }
@@ -85,7 +112,7 @@ nav {
     border: none; 
     outline: none;
 	background: transparent;
-    border: 1px solid white;
+    border: 1px solid $black;
     cursor: pointer;
     svg {
     	background: black;
@@ -95,5 +122,25 @@ nav {
     	polygon {
     		fill: $pink;
     	}
+    }
+}
+
+.modal-body {
+    .content {
+    }
+}
+.overlay {
+    background:-webkit-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+    background:-moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+    background:-o-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+    background:linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition-duration: 0.3s;
+    &.all{
+        background: rgba(0, 0, 0, 0.8);
     }
 }
