@@ -11,11 +11,20 @@
       </div>
       <div class="modal-body">
       	<div class="content">
-      		<h5 class="modal-title">{{work.title}}</h5>
+      		<h5 class="modal-title" w-slug='{{work.slug}}'>{{work.title}}</h5>
       		{% if work.subtitle %}
       			<quote class="mb-2">{{work.subtitle}}</quote>
       		{% endif %}
         	<p>{{work.description}}</p>
+        	<div class="tags">
+				<h6>Tags</h6>
+				{% for t in work.tags.all %}
+					<span>#{{t.name}}</span>
+				{% endfor %}
+				</div>
+				
+				<a class="btn view-project" href="{{work.link}}">{% trans 'view project' %}</a>
+			</div>
       	</div>
       </div>
       <!-- <div class="modal-footer">

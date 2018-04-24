@@ -14,9 +14,9 @@ def index(request):
 def works(request, work=None):
 	works = Project.objects.all()
 	if work:
-		selected = Project.objects.get(slug=work)
-		print(selected)
-		return render(request, 'works.html',{'works': works, 'selected':selected})
+		work = Project.objects.get(slug=work)
+		print(work)
+		return render(request, 'works.html',{'works': works, 'work':work})
 	return render(request, 'works.html',{'works': works})
 
 def works_detail(request, slug):

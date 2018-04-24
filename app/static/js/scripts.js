@@ -2,17 +2,19 @@ $(document).ready(function(){
 /*********************
 	* slider home
 	*********************/
-	$('.slider').slick({
-		slidesToShow: 1,
-	 slidesToScroll: 1,
-	 autoplay: true,
-	 autoplaySpeed: 4000,
-	 dots: true,
-	 arrows: false,
-	 infinite: true,
-	 vertical: true,
-	 verticalSwiping: true
- });
+	if($('.slider')) {
+		$('.slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			dots: true,
+			arrows: false,
+			infinite: true,
+			vertical: true,
+			verticalSwiping: true
+		});
+	}
 
 /*********************
 	* grid
@@ -32,7 +34,6 @@ $(document).ready(function(){
 		});
 	} else {
 		$('body').removeClass('projects-on');
-		$('.nav-item').not('.nav-item.home').hide();
 	}
 
 
@@ -82,8 +83,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
-var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
-
+var csrftoken = getCookie('csrftoken');
 
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
