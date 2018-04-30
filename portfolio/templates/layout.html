@@ -8,9 +8,7 @@
 		<meta name="author" content="sarah abderemane">
 		<link rel="icon" href="../../favicon.ico">
 		<title>sarah abderemane's portfolio</title>
-
-		
-		
+	
 		{% compress css %}
 			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/_variables.scss' %}" />
 			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/base.scss' %}" />
@@ -26,37 +24,50 @@
 		{% block styles %}{% endblock %}
 	</head>
 	<body>
-		
-		<nav id="navbar" class="nav-active navbar navbar-dark bg-primary">
-			<!-- <button class="menu-button btn btn-secondary" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
-				<hr class="trait white first">
-				<hr class="trait white second">
-			</button> -->
-			<ul class="navbar-nav nav flex-column">			  
-			    {% block nav %}{% endblock %}
-			 <!--  <li class="nav-item works">
+		<div class="nav-toggle collapse" id="navbarToggle">
+			<ul class="navbar-nav nav flex-column">	
+			 <li class="style-link">
+			    <a class="nav-link" href="{% url 'index' %}">Home</a>
+			  </li>		  
+			  <li class="style-link">
 			    <a class="nav-link" href="{% url 'works' %}">Works</a>
 			  </li>
-			  <li class="nav-item about">
-			    <a class="nav-link disabled" href="#">About</a>
+			  <li class="style-link">
+			    <a class="nav-link" href="{% url 'about' %}">About</a>
 			  </li>
-			  <li class="nav-item contact">
+			  <li class="style-link">
 			    <a class="nav-link disabled" href="#">Contact</a>
-			  </li> -->
+			  </li>
 			</ul>
-		</nav>
-		<div class="container-fluid">
-			<div class="row pusher">
-				{% block content %}{% endblock %}				
-			</div>
-			<button onclick="topFunction()" id="btn-top" title="Go to top">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 349.629 349.629" xml:space="preserve">
-				<g>
+		</div>
+		
+		<div class="pusher">
+			<nav id="navbar" class="nav-active navbar navbar-dark bg-primary">
+				<!-- <button class="menu-button btn btn-secondary" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
+					<hr class="trait white first">
+					<hr class="trait white second">
+				</button> -->
+				<nav class="menu-button navbar nav flex-column">
+					<button class="btn-toggle" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false">
+						<hr class="trait white first">
+						<hr class="trait white second">
+					</button>
+				</nav>
+				<ul class="navbar-nav nav flex-column">			  
+				    {% block nav %}{% endblock %}
+				</ul>
+			</nav>
+			<div class="container-fluid">
+					{% block content %}{% endblock %}				
+				<button onclick="topFunction()" id="btn-top" title="Go to top">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 349.629 349.629" xml:space="preserve">
 					<g>
-						<polygon points="174.827,73.433 0,253.42 23.434,276.19 174.827,120.318 326.216,276.196 349.629,253.42   " fill="#FFFFFF"/>
+						<g>
+							<polygon points="174.827,73.433 0,253.42 23.434,276.19 174.827,120.318 326.216,276.196 349.629,253.42   " fill="#FFFFFF"/>
+						</g>
 					</g>
-				</g>
-			</button>
+				</button>
+			</div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -72,7 +83,7 @@
 
 			function scrollFunction() {
 
-			    if (document.getElementById("content-wrap").scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			    if (document.getElementsByTagName("body").scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			        document.getElementById("btn-top").style.display = "block";
 			    } else {
 			        document.getElementById("btn-top").style.display = "none";

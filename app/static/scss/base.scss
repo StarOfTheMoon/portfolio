@@ -20,6 +20,43 @@ nav {
     &.nav-active {
         margin-top: 3em;
         padding: 0.8em 1em;
+        justify-content: initial;
+    }
+}
+
+#navbarToggle {
+    background: white;
+    position: absolute;
+    width: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+    &.show {
+        display: flex;
+        height: 100%;
+        width: 280px;
+        max-width: 280px;
+    }
+    &.collapsing {
+        transition: all 0.3s;
+    }
+}
+
+.style-link {
+
+}
+
+.pusher {
+    position: relative;
+    left: inherit;
+    transition: all 1s;
+    .btn-toggle {      
+        background: transparent;
+        border: none;
+    }
+    &.menu-show {
+        left: 280px;
     }
 }
 
@@ -50,10 +87,10 @@ nav {
     cursor: pointer;
     &:hover {
         .trait {
-            width: 50px;
+            width: 45px;
             transition: 0.5s linear;
             &.first {
-                width: 30px;
+                width: 25px;
             }
         }
     }
@@ -61,15 +98,15 @@ nav {
 
 .trait {
     border-top: 2px solid $pink;
-    width: 30px;
+    width: 25px;
     text-align: left;
     margin-left: 0;
     &.white {
-        border-top: 4px solid white;
+        border-top: 3px solid white;
         margin-bottom: 2px;
-        margin-top: 6px;
+        margin-top: 3px;
         &.first {
-            width: 50px;
+            width: 45px;
         }
     }
 }

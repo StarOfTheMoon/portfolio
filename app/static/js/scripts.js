@@ -1,8 +1,18 @@
 $(document).ready(function(){
+	$('.btn-toggle').on('click', function() {
+		console.log($('.nav-toggle.collapse').hasClass('show'));
+		if($('.nav-toggle.collapse').hasClass('show')) {
+			$('.pusher').removeClass('menu-show');
+		} 
+		else {
+			$('.pusher').addClass('menu-show');
+		}
+	})
+
 /*********************
 	* slider home
 	*********************/
-	if($('.slider')) {
+	if($('.slider').length != 0) {
 		$('.slider').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -19,9 +29,7 @@ $(document).ready(function(){
 /*********************
 	* grid
 	*********************/
-	if($('.grid')) {
-		$('body').addClass('projects-on');
-
+	if($('.grid').length != 0) {
 		$('.nav-item').not('.nav-item.works').hide();
 		var grid = new Muuri('.grid', {
 			layout: {
@@ -32,11 +40,7 @@ $(document).ready(function(){
 			    rounding: true
 			}
 		});
-	} else {
-		$('body').removeClass('projects-on');
 	}
-
-
 });
 
 $(window).on('load', function(){

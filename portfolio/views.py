@@ -11,6 +11,9 @@ def index(request):
 	projects = Project.objects.all()
 	return render(request, 'index.html', {'projects': projects})
 
+def about(request):
+	return render(request, 'about.html')
+
 def works(request, work=None):
 	works = Project.objects.all()
 	if work:

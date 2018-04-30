@@ -30,6 +30,8 @@ section {
 	height: 70vh;
 	&.top {
 		padding-top: 60px;
+		max-width: 1110px;
+		margin: 0 auto;
 		/*--------------------*
 		 * header
 		 *--------------------*/
@@ -42,8 +44,8 @@ section {
 			.computer {
 				position: absolute;
 			    top: 1.8em;
-			    right: -14em;
-			    height: 98%;
+			    right: 0;
+			    max-height: 435px;
 			    fill: transparent;
 			    opacity: 0.25;
 			    stroke-width: 3;

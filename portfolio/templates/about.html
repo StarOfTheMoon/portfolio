@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block nav %}
+<li class="nav-item about">
+	<a class="nav-link active" href="{% url 'about' %}">About</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+<div class="offset-2 col-10 pt-3 about">
+	<p>
+		I'm Sarah Abderemane, I'm 22. I am currently studying IT at The Institute of Bobigny in Paris, France.
+	</p>
+	<p>
+		Previously I have completed a Bachelors in General Business and am turing towards the field of IT due to my passion for new and hi-tech technologies. I am an autodidact in integration amongst a variety of other web skills. I chose to focus on this area of study in order to improve myself and to become a web developer, particularly in front-end development. My Business Bachelors still help me as a developer and it permits me to be multipurpose.
+	</p>
+	<p>
+		You can read my full resume by clicking here.
+	</p>
+	<table>
+		<tr>
+			<th>Programming Language</th>
+		</tr>
+		<tr>
+			<td>
+				<p>HTML
+				<div class="progress" style="height: 2px;">
+				  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				</p>
+			</td>
+		</tr>
+	</table>
+</div>
+
+{% endblock %} 
