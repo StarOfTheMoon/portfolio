@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from portfolio.models import Project
+from portfolio.models import Project, Tag
 
 
 def index(request):
@@ -12,7 +12,11 @@ def index(request):
 	return render(request, 'index.html', {'projects': projects})
 
 def about(request):
-	return render(request, 'about.html')
+	tags = Tag.objects.all()
+	front = [front for front in tags if front.type == 'Front']
+	back = [back for back in tags if back.type == 'Back']
+	tagsFiltered = [{'cat': 'Front', 'tags': front}, {'cat': 'Back', 'tags' : back}]
+	return render(request, 'about.html', {'tags': tagsFiltered})
 
 def works(request, work=None):
 	works = Project.objects.all()

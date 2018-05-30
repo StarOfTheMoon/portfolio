@@ -16,6 +16,8 @@ class Image(models.Model):
 
 class Tag(models.Model):
 	name = models.CharField("Nom",max_length=100)
+	level = models.PositiveSmallIntegerField("Pourcentage", default=0)
+	type = models.CharField("Catégorie",max_length=100, default="")
 	slug = models.SlugField(default=None, null=True, blank=True)
 
 	def __str__(self):

@@ -1,0 +1,22 @@
+.meter {
+	height: 2px;
+	background: white;
+}
+
+table.skills {
+	tr {
+		th {
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+		td {
+			width: 145px;
+			.progress {
+				background-color: #1a1a1a;
+				.progress-bar {
+					background-color: #f7f7f9;
+				}
+			}
+		}
+	}
+}
