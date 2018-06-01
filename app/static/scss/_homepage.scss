@@ -5,13 +5,7 @@
  *********************/
 
 h1 {
-	color: $purple;
-	font-family: 'Philosopher';
-}
-
-h2 {
-	// font-family: 'Philosopher';
-	font-size: 2.5em;
+	color: $grey;
 }
 
 a {
@@ -37,10 +31,6 @@ section {
 		 *--------------------*/
 		header {
 			position: relative;
-			.headline {
-				font-size: 36px;
-				//font-family: 'Playfair Display', serif;
-			}
 			.computer {
 				position: absolute;
 			    top: 1.8em;
@@ -53,6 +43,13 @@ section {
 			.text {
 				position: absolute;
 				z-index: 1;
+				.subtitle {
+					color: $gray-500;
+				}
+				.headline {
+					font-size: 36px;
+					color: $gray-500;
+				}
 				.line {
 					width: 56px;
 					border-top: 6px solid $purple;

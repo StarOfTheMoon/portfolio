@@ -1,13 +1,28 @@
 $(document).ready(function(){
+	var backdrop = $('.dropdown-backdrop');
+	if(backdrop) { 
+		backdrop.hide();
+	}
+
+	backdrop.click(function () {
+	    $('.pusher').removeClass('menu-show');
+	  	$('.nav-toggle.collapse').removeClass('show'); 
+		backdrop.hide();
+	})
+
 	$('.btn-toggle').on('click', function() {
-		console.log($('.nav-toggle.collapse').hasClass('show'));
 		if($('.nav-toggle.collapse').hasClass('show')) {
 			$('.pusher').removeClass('menu-show');
+			backdrop.hide();
 		} 
 		else {
 			$('.pusher').addClass('menu-show');
+			backdrop.show();
 		}
 	})
+
+	
+
 
 /*********************
 	* slider home

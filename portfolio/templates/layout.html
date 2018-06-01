@@ -8,12 +8,7 @@
 		<meta name="author" content="sarah abderemane">
 		<link rel="icon" href="../../favicon.ico">
 		<title>sarah abderemane's portfolio</title>
-	
-		{% compress css %}
-			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/_variables.scss' %}" />
-			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/base.scss' %}" />
-			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/_homepage.scss' %}" />
-		{% endcompress %}
+
 		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}"/>
@@ -21,9 +16,15 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<!-- fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Hind|Philosopher|Rokkitt|Sanchez" rel="stylesheet">
+		{% compress css %}
+			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/_variables.scss' %}" />
+			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/base.scss' %}" />
+			<link rel="stylesheet" type="text/x-scss" href="{% static 'scss/_homepage.scss' %}" />
+		{% endcompress %}
 		{% block styles %}{% endblock %}
 	</head>
 	<body>
+		<div class="dropdown-backdrop"></div>
 		<div class="nav-toggle collapse" id="navbarToggle">
 			<ul class="navbar-nav nav flex-column">	
 			 <li class="style-link">
@@ -42,7 +43,7 @@
 		</div>
 		
 		<div class="pusher">
-			<nav id="navbar" class="nav-active navbar navbar-dark bg-primary">
+			<nav id="navbar" class="nav-active navbar navbar-dark">
 				<!-- <button class="menu-button btn btn-secondary" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
 					<hr class="trait white first">
 					<hr class="trait white second">

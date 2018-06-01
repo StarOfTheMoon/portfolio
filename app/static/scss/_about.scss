@@ -3,20 +3,20 @@
 	background: white;
 }
 
-table.skills {
-	tr {
-		th {
-			padding-top: 1em;
-			padding-bottom: 1em;
-		}
-		td {
-			width: 145px;
-			.progress {
-				background-color: #1a1a1a;
-				.progress-bar {
-					background-color: #f7f7f9;
-				}
-			}
+.skills {
+	a {
+		display: inline-block;
+		color: $purple;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+	
+	.progress {
+		width: 145px;
+		margin-bottom: 1em;
+		background-color: #1a1a1a;
+		.progress-bar {
+			background-color: #f7f7f9;
 		}
 	}
 }

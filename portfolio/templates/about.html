@@ -10,9 +10,9 @@
 
 
 {% block content %}
-<div class="offset-2 col-10 pt-3 about">
+<div class="offset-2 col-8 pt-3 about">
 	<p>
-		I'm Sarah Abderemane, I'm 22. I am currently studying IT at The Institute of Bobigny in Paris, France.
+		I'm Sarah Abderemane, I'm 24. I am currently studying IT at The IPSSI Institute in Paris, France.
 	</p>
 	<p>
 		Previously I have completed a Bachelors in General Business and am turing towards the field of IT due to my passion for new and hi-tech technologies. I am an autodidact in integration amongst a variety of other web skills. I chose to focus on this area of study in order to improve myself and to become a web developer, particularly in front-end development. My Business Bachelors still help me as a developer and it permits me to be multipurpose.
@@ -20,27 +20,27 @@
 	<p>
 		You can read my full resume by clicking here.
 	</p>
-	<table class="skills">
+	<div id="skills" class="skills" role="tablist" aria-multiselectable="true">
 	{% for t in tags %}
-		<tr>
-			<th>{{t.cat}}</th>
-		</tr>
+		<div role="tab" id="heading{{forloop.counter}}">
+			<a data-toggle="collapse" data-parent="#skills" href="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapse{{forloop.counter}}">
+      			{{t.cat}}
+      		</a>
+  		</div>
+  		<div id="collapse{{forloop.counter}}" class="collapse {% if forloop.first %}show{% endif %}" role="tabpanel" aria-labelledby="heading{{forloop.parentloop.counter}}">
 		{% for tag in t.tags %}
-		<tr>
-			<td>
-				<div>
-					<span>{{tag.name}}</span>
-					<div class="progress" style="height: 2px;">
-					  <div class="progress-bar" role="progressbar" style="width: {{tag.level}}%;" aria-valuenow="{{t.level}}" aria-valuemin="0" aria-valuemax="100">
-					  	<small class="justify-content-center d-flex position-absolute w-100">{{tag.level}}% complete</small>
-					  </div>
-					</div>
+			<div>
+				<span>{{tag.name}}</span>
+				<div class="progress" style="height: 2px;">
+				  <div class="progress-bar" role="progressbar" style="width: {{tag.level}}%;" aria-valuenow="{{t.level}}" aria-valuemin="0" aria-valuemax="100">
+				  	<small class="justify-content-center d-flex position-absolute w-100">{{tag.level}}% complete</small>
+				  </div>
 				</div>
-			</td>		
-		</tr>
+			</div>
 		{% endfor %}
+		</div>
 	{% endfor %}
-	</table>
+	</div>
 </div>
 
 {% endblock %} 
