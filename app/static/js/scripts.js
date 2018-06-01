@@ -21,10 +21,8 @@ $(document).ready(function(){
 		}
 	})
 
-	
 
-
-/*********************
+	/*********************
 	* slider home
 	*********************/
 	if($('.slider').length != 0) {
@@ -41,7 +39,7 @@ $(document).ready(function(){
 		});
 	}
 
-/*********************
+	/*********************
 	* grid
 	*********************/
 	if($('.grid').length != 0) {
@@ -63,26 +61,11 @@ $(window).on('load', function(){
 	title = document.querySelector('.title-page');
 	if(title) {
 	    charming(title);
-	    //document.title.letters = Array.from(document.title.querySelectorAll('span'));
     }
-
-	// var $cont = document.querySelector('.cont');
-	// var $elsArr = [].slice.call(document.querySelectorAll('.el'));
 
 	if(window.location.pathname != '/projects/') {
 		var $pathArray = window.location.pathname.split( '/' );
 		var $pathName = $pathArray[2];
-
-		// $elsArr.forEach(function($el) {
-		// 	// get all headings
-		// 	$name = $el.querySelector('.el__heading').innerHTML;
-		// 	$name = $name.toLowerCase().replace(' ','-');
-		// 	// get the element html and show it
-		// 	if($name == $pathName) {
-		// 		$cont.classList.add('s--el-active');
-		// 		$el.classList.add('s--active');
-		// 	}
-		// })
 	}
 });  
 
