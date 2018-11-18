@@ -1,68 +1,78 @@
 .projects {
 	overflow: auto;
+	height: 100vh;
+    display: flex;
+    align-items: flex-end;
 	&::-webkit-scrollbar {
-        width: 1em;
+    	width: 1em;
     }
     &::-webkit-scrollbar-track {
-        -webkit-box-shadow: white;
+    	background-color: $gray-900;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: #1A1A1A;
-      //outline: 1px solid grey;
-    }
-	.grid {
-		position: relative;
-    	height: 80vh;
-		.item {
-			position: absolute;
-			width: 210px;
-			height: 210px;
-			padding: 10px;
-			margin: 10px;
-			z-index: 1;
-			background: transparent;
-			color: $purple;
-			border: 1px solid white;
-			text-decoration: none;
-			text-align: center;
-			&.muuri-item-dragging {
-				z-index: 3;
-			}
-			&.muuri-item-releasing {
-				z-index: 2;
-			}
-			&.muuri-item-hidden {
-				z-index: 0;
-			}
-			&.large {
-				height: 500px;
-			}
-			&.small-push {
-				margin-bottom: 72px;
-			}
-			.item-content {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				cursor: pointer;
-				.project {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					height: 100%;
-					z-index: 4;
-					&:hover {
-						opacity: 0.7;
-					}
-					.project-content {
-						z-index: 2;
-					}
-					h2 {
-						color: white;
-						text-align: center;
-					}
+    	background-color: $grey;
+    	//outline: 1px solid grey;
+	}
+	.glide__arrows {
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: flex;
+		transform: translateY(-5%);
+		z-index: 3;
+		.glide__arrow {
+			position: relative;
+			color: $darkGrey;
+			top: initial;
+			left: initial;
+			right: initial;
+			transform: none;
+			border: none;
+			box-shadow: none;
+			padding: 2px 8px;
+			&.glide__arrow--left {
+				margin-right: 0.1em;
+				&:hover {
+					transform: translateX(-3px);
 				}
-			}	
+			}
+			&.glide__arrow--right {
+				margin-left: 0.1em;
+				&:hover {
+					transform: translateX(3px);
+				}
+			}
+		}
+	}
+	.numbers {
+		font-family: 'Gigole', sans-serif;
+		font-size: 1.5rem;
+		font-weight: 400;
+		display: flex;
+		align-items: center;
+		span {
+			color: black;
+		}
+	}
+	.project {
+		.title {
+			font-size: 1.5rem;
+		}
+		.img-project {
+			width: 100%;
+		}
+		p {
+			margin-top: 1rem;
+		}
+
+		.tag {
+			font-size: 11px;
+			text-align: center;
+			text-transform: uppercase;
+			color: $lightGrey;
+			padding: 0.3em;
+			border: 1px solid $lightGrey;
+			border-radius: 5px;
 		}
 	}
 }

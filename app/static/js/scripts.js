@@ -1,73 +1,64 @@
-$(document).ready(function(){
-	var backdrop = $('.dropdown-backdrop');
-	if(backdrop) { 
-		backdrop.hide();
-	}
-
-	backdrop.click(function () {
-	    $('.pusher').removeClass('menu-show');
-	  	$('.nav-toggle.collapse').removeClass('show'); 
-		backdrop.hide();
-	})
-
-	$('.btn-toggle').on('click', function() {
-		if($('.nav-toggle.collapse').hasClass('show')) {
-			$('.pusher').removeClass('menu-show');
-			backdrop.hide();
-		} 
-		else {
-			$('.pusher').addClass('menu-show');
-			backdrop.show();
-		}
-	})
-
-
-	/*********************
-	* slider home
-	*********************/
-	if($('.slider').length != 0) {
-		$('.slider').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 4000,
-			dots: true,
-			arrows: false,
-			infinite: true,
-			vertical: true,
-			verticalSwiping: true
-		});
-	}
-
-	/*********************
-	* grid
-	*********************/
-	if($('.grid').length != 0) {
-		$('.nav-item').not('.nav-item.works').hide();
-		var grid = new Muuri('.grid', {
-			layout: {
-			    fillGaps: false,
-			    horizontal: true,
-			    alignRight: false,
-			    alignBottom: true,
-			    rounding: true
-			}
-		});
-	}
+let $rect = $('.rect');
+let project_slider = new Glide('.glide.projects-sl', {
+	type: "slide",
+	startAt: 0,
+	perView: 1,
+	gap: 0
 });
+let home_slider = new Glide('.glide.index', {
+	type: "slide",
+	startAt: 0,
+	perView: 1,
+	gap: 0,
+	autoplay: 2000,
+	width: 400,
+	wrapperWidth: 400
+})
+
 
 $(window).on('load', function(){
 	// split title in letters with space
 	title = document.querySelector('.title-page');
 	if(title) {
 	    charming(title);
-    }
-
-	if(window.location.pathname != '/projects/') {
-		var $pathArray = window.location.pathname.split( '/' );
-		var $pathName = $pathArray[2];
 	}
+	loadContent();
 });  
+
+function changeURL(slug) {
+	window.history.replaceState(null, null, 'http://'+window.location.host+'/projects/'+slug+'/'); 
+}
+
+function loadContent() {
+	var index = $('.item-content.glide__slide--active').attr('idx');
+	var $pathArray = window.location.pathname.split( '/' );
+	var $pathName = $pathArray[2];
+	switch (window.location.pathname) {
+		case '/':
+			$rect.addClass('home');
+			home_slider.mount();
+			break;
+		case '/about/':
+			$rect.addClass('about');
+			break;
+		case '/contact/':
+			$rect.addClass('contact');
+			break;
+		case '/projects/':
+			project_slider.mount();
+			$rect.addClass('projects');
+			break;
+		case '/projects/' + $pathName + '/':
+			//changeURL($pathName);
+			$rect.addClass('projects');
+			project_slider.update({ startAt: index });
+			project_slider.mount();
+			break;
+		default:
+			$rect.addClass('404');
+			break;
+	}
+}
 
 function getCookie(name) {
 	var cookieValue = null;

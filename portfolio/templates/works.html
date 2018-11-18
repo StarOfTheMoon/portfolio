@@ -2,67 +2,45 @@
 {% load i18n %}
 {% load static %}
 
-{% block nav %}
-<li class="nav-item works">
-	<a class="nav-link active" href="{% url 'works' %}">Works</a>
-</li>
-{% endblock %}
-
-
 {% block content %}
-<div class="offset-2 col-10 projects">
-	<div class="grid">
-		{% for w in works %}
-		<a class="item {% cycle '' '' 'large' 'small-push' '' %}" href="{% url 'works-detail' w.slug %}" data-slug='{{w.slug}}'>
-
-			<div class="item-content">
-				<div class="project"  style="background-image: url('{{w.img_header.image.url}}'); background-size: cover; background-repeat: no-repeat;">
-					<div class="project-content">
-						<h2>{{w.title}}</h2>
-					</div>
-					<div class="overlay all"></div>
+<section class="row">
+	<div class="offset-1 col-8 projects">
+		<div class="glide projects-sl">
+			<div class="glide__arrows" data-glide-el="controls">
+				<button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+				<div class="numbers">
+					<span>01</span>/0{{works|length}}
 				</div>
+				<button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
 			</div>
-		</a>   
-		{% endfor %}
+			<div data-glide-el="track" class="glide__track">
+				<ul class="glide__slides">
+					{% for w in works %}				
+					<li class='item-content glide__slide{% if work.slug == w.slug %} glide__slide--active{% endif %}' w-slug='{{w.slug}}' idx='{{forloop.counter0}}'>
+						<div class="project">
+							<h5 class="title">{{w.title}}</h5>
+							{% if w.subtitle %}
+								<quote class="mb-2">{{w.subtitle}}</quote>
+							{% endif %}
+							<div class="tags">
+								{% for t in w.tags.all %}
+									<span class="tag">{{t.name}}</span>
+								{% endfor %}
+							</div>
+							<p>{{w.description}}</p>
+							
+							<a class="btn view-project" href="{{w.link}}">{{w.link}}</a>
+							<img class="img-project" src="{{w.img_header.image.url}}">
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
 	</div>
-</div>
-<div class="modal-infos">
-	{% include "works-detail.html" %}
-</div>
-<!-- <div class="title-block">
-	<h2 class="title-page">Works</h2> 
-</div> -->
+	<div class="col-3 links-content">
+		<a class="nav-link" href="{% url 'about' %}">-> About</a>
+		<a class="nav-link disabled">-> Contact</a>
+	</div>
+</section>
 {% endblock %} 
-
-{% block others_scripts %}
-	<script>
-		$(document).ready(function(){
-			var work_name = '{{work.title}}';
-			var slug_name = $('.modal-title').attr('w-slug');
-			if(work_name) {
-				$('.modal.infos').modal('show');
-				changeURL(slug_name);
-			}
-
-			$('.item').click(function(event) {
-				event.preventDefault();
-				$.ajax({
-					url: $(this).attr('href'),
-					type: 'POST',
-					headers: {"X-CSRFToken": csrftoken},
-					data: {'slug': $(this).attr('href')}
-				}).done(function(response){
-					$('.modal.infos').replaceWith(response);
-					$('.modal.infos').modal('show');
-					var slug = $('.modal-title').attr('w-slug');
-					changeURL(slug);
-				})
-			})
-		})
-
-		function changeURL(slug) {
-    		window.history.replaceState(null, null, 'http://'+window.location.host+'/projects/'+slug); 
-		}
-	</script>
-{% endblock %}

@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@glidejs/glide": "^3.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StarOfTheMoon/portfolio.git"
+  },
+  "author": "sarah abderemane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StarOfTheMoon/portfolio/issues"
+  },
+  "homepage": "https://github.com/StarOfTheMoon/portfolio#readme"
+}

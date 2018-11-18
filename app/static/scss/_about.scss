@@ -1,22 +1,32 @@
-.meter {
-	height: 2px;
-	background: white;
-}
-
-.skills {
-	a {
-		display: inline-block;
-		color: $purple;
-		margin-top: 1em;
-		margin-bottom: 1em;
+.about-content {
+	height: 100vh;
+	p {
+		text-align: justify;
 	}
-	
-	.progress {
-		width: 145px;
-		margin-bottom: 1em;
-		background-color: #1a1a1a;
-		.progress-bar {
-			background-color: #f7f7f9;
+	.meter {
+		height: 2px;
+		background: white;
+	}
+	.skills {
+		a {
+			display: inline-block;
+			color: $purple;
+			margin-top: 1em;
+			margin-bottom: 1em;
+			&:hover {
+				color: $purpleLight;
+			}
+		}		
+		.progress {
+			width: 145px;
+			margin-bottom: 1em;
+			background-color: #1a1a1a;
+			.progress-bar {
+				background-color: #f7f7f9;
+			}
 		}
+	}
+	.links-content {
+		align-self: flex-end;
 	}
 }

@@ -26,8 +26,8 @@ def works(request, work=None):
 		return render(request, 'works.html',{'works': works, 'work':work})
 	return render(request, 'works.html',{'works': works})
 
-def works_detail(request, slug):
-	work = Project.objects.get(slug=slug)
-	html = render_to_string('works-detail.html', {'work': work})
-	return HttpResponse(html)
+# def works_detail(request, slug):
+# 	work = Project.objects.get(slug=slug)
+# 	html = render_to_string('works-detail.html', {'work': work})
+# 	return HttpResponse(html)
 
