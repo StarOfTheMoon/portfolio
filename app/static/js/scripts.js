@@ -1,4 +1,5 @@
 let $rect = $('.rect');
+let $count = $('#count');
 let project_slider = new Glide('.glide.projects-sl', {
 	type: "slide",
 	startAt: 0,
@@ -23,16 +24,29 @@ $(window).on('load', function(){
 	    charming(title);
 	}
 	loadContent();
-});  
+	countProject();
+});
+
+function countProject() {
+	value = project_slider.index + 1;
+	$count.text('0' + value);
+	// if click left 
+	$('.glide__arrow--left').on('click', function() {
+		value = project_slider.index + 1;
+		$count.text('0' + value);
+	})
+	// if click right 
+	$('.glide__arrow--right').on('click', function() {
+		value = project_slider.index + 1;
+		$count.text('0' + value);
+	})
+}
 
 function changeURL(slug) {
 	window.history.replaceState(null, null, 'http://'+window.location.host+'/projects/'+slug+'/'); 
 }
 
-function loadContent() {
-	var index = $('.item-content.glide__slide--active').attr('idx');
-	var $pathArray = window.location.pathname.split( '/' );
-	var $pathName = $pathArray[2];
+function switchPositionRect(pathName, index) {
 	switch (window.location.pathname) {
 		case '/':
 			$rect.addClass('home');
@@ -48,7 +62,7 @@ function loadContent() {
 			project_slider.mount();
 			$rect.addClass('projects');
 			break;
-		case '/projects/' + $pathName + '/':
+		case '/projects/' + pathName + '/':
 			//changeURL($pathName);
 			$rect.addClass('projects');
 			project_slider.update({ startAt: index });
@@ -58,6 +72,13 @@ function loadContent() {
 			$rect.addClass('404');
 			break;
 	}
+}
+
+function loadContent() {
+	var $index = $('.item-content.glide__slide--active').attr('idx');
+	var $pathArray = window.location.pathname.split( '/' );
+	var $pathName = $pathArray[2];
+	switchPositionRect($pathName, $index);
 }
 
 function getCookie(name) {

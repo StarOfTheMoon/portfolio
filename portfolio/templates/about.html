@@ -2,13 +2,6 @@
 {% load i18n %}
 {% load static %}
 
-{% block nav %}
-<li class="nav-item about">
-	<a class="nav-link active" href="{% url 'about' %}">About</a>
-</li>
-{% endblock %}
-
-
 {% block content %}
 <section class="row align-items-center about-content">
 	<div class="offset-1 col-5 about">
@@ -44,8 +37,8 @@
 		</div>
 	</div>
 	<div class="offset-2 col-3 links-content">
-		<a class="nav-link" href="{% url 'works' %}">-> Works</a>
-		<a class="nav-link disabled">-> Contact</a>
+		<a class="nav-link" href="{% url 'works' %}"><span class="icon-right-arrow"></span> Works</a>
+		<a class="nav-link disabled"><span class="icon-right-arrow"></span> Contact</a>
 	</div>
 </section>
 {% endblock %} 

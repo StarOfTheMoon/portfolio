@@ -7,11 +7,11 @@
 	<div class="offset-1 col-8 projects">
 		<div class="glide projects-sl">
 			<div class="glide__arrows" data-glide-el="controls">
-				<button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+				<button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span class="icon-back"></span></button>
 				<div class="numbers">
-					<span>01</span>/0{{works|length}}
+					<span id="count"></span>/0{{works|length}}
 				</div>
-				<button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+				<button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span class="icon-next"></span></button>
 			</div>
 			<div data-glide-el="track" class="glide__track">
 				<ul class="glide__slides">
@@ -39,8 +39,8 @@
 		</div>
 	</div>
 	<div class="col-3 links-content">
-		<a class="nav-link" href="{% url 'about' %}">-> About</a>
-		<a class="nav-link disabled">-> Contact</a>
+		<a class="nav-link" href="{% url 'about' %}"><span class="icon-right-arrow"></span> About</a>
+		<a class="nav-link disabled"><span class="icon-right-arrow"></span> Contact</a>
 	</div>
 </section>
 {% endblock %} 
