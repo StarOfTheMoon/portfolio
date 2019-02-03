@@ -30,14 +30,14 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'portfolio.apps.PortfolioConfig',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'modeltranslation',
+    'portfolio',
     'compressor',
 ]
 
@@ -113,6 +113,10 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
+
+
 USE_L10N = True
 
 USE_TZ = True
@@ -134,3 +138,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'upload')
 MEDIA_URL = '/upload/'
+
