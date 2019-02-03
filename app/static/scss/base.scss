@@ -37,15 +37,17 @@ body {
   position: absolute;
   font-size: 3.5rem;
   color: black;
+  margin: 0.2em;
 }
+
 section {
-  &:before {
-    content: '';
-    width: 100%;
-    border-top: 5px double black;
-    border-bottom: 1px solid black;
-    transform: translateX(-43%) translateY(85px) rotate(90deg);
-  }
+  // &:before {
+  //   content: '';
+  //   width: 100%;
+  //   border-top: 5px double black;
+  //   border-bottom: 1px solid black;
+  //   transform: translateX(-43%) translateY(85px) rotate(90deg);
+  // }
 }
 .rect {
   position: absolute;

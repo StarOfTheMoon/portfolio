@@ -4,38 +4,41 @@
 
 {% block content %}
 <section class="row align-items-center about-content">
-	<div class="offset-1 col-5 about">
-		<p>
-			I'm Sarah Abderemane, I'm 24. I am currently studying IT at The IPSSI Institute in Paris, France.
-		</p>
-		<p>
-			Previously I have completed a Bachelors in General Business and am turing towards the field of IT due to my passion for new and hi-tech technologies. I am an autodidact in integration amongst a variety of other web skills. I chose to focus on this area of study in order to improve myself and to become a web developer, particularly in front-end development. My Business Bachelors still help me as a developer and it permits me to be multipurpose.
-		</p>
-		<p>
-			You can read my full resume by clicking here.
-		</p>
-		<div id="skills" class="skills" role="tablist" aria-multiselectable="true">
-		{% for t in tags %}
-			<div role="tab" id="heading{{forloop.counter}}">
-				<a data-toggle="collapse" data-parent="#skills" href="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapse{{forloop.counter}}">
-					{{t.cat}}
-				</a>
-			</div>
-			<div id="collapse{{forloop.counter}}" class="collapse {% if forloop.first %}show{% endif %}" role="tabpanel" aria-labelledby="heading{{forloop.parentloop.counter}}">
-			{% for tag in t.tags %}
-				<div>
-					<span>{{tag.name}}</span>
-					<div class="progress" style="height: 2px;">
-					<div class="progress-bar" role="progressbar" style="width: {{tag.level}}%;" aria-valuenow="{{t.level}}" aria-valuemin="0" aria-valuemax="100">
-						<small class="justify-content-center d-flex position-absolute w-100">{{tag.level}}% complete</small>
+	<div class="offset-1 col-5 about d-flex">
+		<div class="">
+			<p>
+				I'm Sarah Abderemane, I'm 25. I am currently studying IT at The IPSSI Institute in Paris, France.
+			</p>
+			<p>
+				Previously I have completed a Bachelors in General Business and am turing towards the field of IT due to my passion for new and hi-tech technologies. I am an autodidact in integration amongst a variety of other web skills. I chose to focus on this area of study in order to improve myself and to become a web developer, particularly in front-end development. My Business Bachelors still help me as a developer and it permits me to be multipurpose.
+			</p>
+			<p>
+				You can read my full resume by clicking here.
+			</p>
+			<div id="skills" class="skills" role="tablist" aria-multiselectable="true">
+			{% for t in tags %}
+				<div role="tab" id="heading{{forloop.counter}}">
+					<a data-toggle="collapse" data-parent="#skills" href="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapse{{forloop.counter}}">
+						{{t.cat}}
+					</a>
+				</div>
+				<div id="collapse{{forloop.counter}}" class="collapse {% if forloop.first %}show{% endif %}" role="tabpanel" aria-labelledby="heading{{forloop.parentloop.counter}}">
+				{% for tag in t.tags %}
+					<div>
+						<span>{{tag.name}}</span>
+						<div class="progress" style="height: 2px;">
+						<div class="progress-bar" role="progressbar" style="width: {{tag.level}}%;" aria-valuenow="{{t.level}}" aria-valuemin="0" aria-valuemax="100">
+							<small class="justify-content-center d-flex position-absolute w-100">{{tag.level}}% complete</small>
+						</div>
+						</div>
 					</div>
-					</div>
+				{% endfor %}
 				</div>
 			{% endfor %}
 			</div>
-		{% endfor %}
 		</div>
 	</div>
+	<img class="portrait" src="{% static 'img/portrait.png' %}">
 	<div class="offset-2 col-3 links-content">
 		<a class="nav-link" href="{% url 'works' %}"><span class="icon-right-arrow"></span> Works</a>
 		<a class="nav-link disabled"><span class="icon-right-arrow"></span> Contact</a>

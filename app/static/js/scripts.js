@@ -1,5 +1,6 @@
-let $rect = $('.rect');
-let $count = $('#count');
+let rect = $('.rect');
+let portrait = $('.portrait');
+let count = $('#count');
 let project_slider = new Glide('.glide.projects-sl', {
 	type: "slide",
 	startAt: 0,
@@ -29,16 +30,16 @@ $(window).on('load', function(){
 
 function countProject() {
 	value = project_slider.index + 1;
-	$count.text('0' + value);
+	count.text('0' + value);
 	// if click left 
 	$('.glide__arrow--left').on('click', function() {
 		value = project_slider.index + 1;
-		$count.text('0' + value);
+		count.text('0' + value);
 	})
 	// if click right 
 	$('.glide__arrow--right').on('click', function() {
 		value = project_slider.index + 1;
-		$count.text('0' + value);
+		count.text('0' + value);
 	})
 }
 
@@ -46,30 +47,32 @@ function changeURL(slug) {
 	window.history.replaceState(null, null, 'http://'+window.location.host+'/projects/'+slug+'/'); 
 }
 
-function switchPositionRect(pathName, index) {
-	switch (window.location.pathname) {
-		case '/':
-			$rect.addClass('home');
+function switchPositionRect(pathName, detail = null, index) {
+	detail !== null ? pathName = pathName + '/' + detail : pathName = pathName;
+	switch (pathName) {
+		case '':
+			rect.addClass('home');
 			home_slider.mount();
 			break;
-		case '/about/':
-			$rect.addClass('about');
+		case 'about':
+			rect.addClass('about');
+			portrait.addClass('show');
 			break;
-		case '/contact/':
-			$rect.addClass('contact');
+		case 'contact':
+			rect.addClass('contact');
 			break;
-		case '/projects/':
+		case 'projects':
 			project_slider.mount();
-			$rect.addClass('projects');
+			rect.addClass('projects');
 			break;
-		case '/projects/' + pathName + '/':
+		case 'projects/' + detail:
 			//changeURL($pathName);
-			$rect.addClass('projects');
+			rect.addClass('projects');
 			project_slider.update({ startAt: index });
 			project_slider.mount();
 			break;
 		default:
-			$rect.addClass('404');
+			rect.addClass('404');
 			break;
 	}
 }
@@ -77,8 +80,15 @@ function switchPositionRect(pathName, index) {
 function loadContent() {
 	var $index = $('.item-content.glide__slide--active').attr('idx');
 	var $pathArray = window.location.pathname.split( '/' );
-	var $pathName = $pathArray[2];
-	switchPositionRect($pathName, $index);
+	// In case of adding prefix language
+	if($pathArray[1] === "fr" || $pathArray[1] === "en") {
+		// send detail name if exist
+		$pathArray.length == 5 ? switchPositionRect($pathArray[2], $pathArray[3], $index) : switchPositionRect($pathArray[2], $index);
+	} 
+	else {
+		// send detail name if exist
+		$pathArray.length == 4 ? switchPositionRect($pathArray[1], $pathArray[2], $index) : switchPositionRect($pathArray[1], $index);
+	}
 }
 
 function getCookie(name) {
