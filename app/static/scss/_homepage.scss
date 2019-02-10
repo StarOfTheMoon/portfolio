@@ -34,12 +34,17 @@ section {
       align-self: center;
       .text {
         text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 5.5em;
         .subtitle {
           color: $gray-300;
         }
         .headline {
           font-size: 36px;
           color: black;
+          max-width: 90%;
         }
         ul.style-link {
           display: flex;
@@ -62,7 +67,7 @@ section {
      *--------------------*/
      .mobile-block {
       position: relative;
-      width: 350px;
+      width: $widthSlide;
       height: 600px;
       border-radius: 75px;
     }
@@ -88,15 +93,14 @@ section {
       -ms-transition: all 0.25s ease-in-out;
       -o-transition: all 0.25s ease-in-out;
       transition: all 0.25s ease-in-out;
-      width: 290px;
-      height: 570px;
+      width: $widthSlide - 90px;
+      height: heightSlide;
       margin: 0 auto;
       top: 1em;
       & * {
-        width: 290px;
-        height: 570px;
+        width: $widthSlide - 90px;
+        height: $heightSlide;
         margin: 0 auto;
-        //height: 580px;
         border-radius: 20px;
       }
       &:hover {
@@ -141,7 +145,7 @@ section {
     
     .all-works {
       text-align: right;
-      margin-bottom: 1em;
+      margin: 1em 0;
       a {
         padding: 0;
         letter-spacing: 4px;

@@ -30,7 +30,11 @@
 							<p>{{w.description}}</p>
 							
 							<a class="btn view-project" href="{{w.link}}">{{w.link}}</a>
-							<img class="img-project" src="{{w.img_header.image.url}}">
+							{% for i in w.image.all %}
+								{% if i.type == 'S' %}
+								<img class="img-project" src="{{i.image.url}}">
+								{% endif %}
+							{% endfor %}
 						</div>
 					</li>
 					{% endfor %}
