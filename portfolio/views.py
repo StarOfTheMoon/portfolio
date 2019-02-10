@@ -8,7 +8,8 @@ from portfolio.models import Project, Tag
 
 
 def index(request):
-	projects = Project.objects.all()
+	projects_all = Project.objects.all()
+	projects = [{'image': p.image.filter(type="H")[0], 'slug': p.slug} for p in projects_all]
 	return render(request, 'index.html', {'projects': projects})
 
 def about(request):

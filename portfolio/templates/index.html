@@ -15,27 +15,27 @@
 			</ul>
 		</div>
 	</header>
-	<div class="d-none d-sm-flex flex-column col-md-4 col-lg-4">
-		<div class="glide index">
-			<div data-glide-el="track" class="glide__track">
-				<ul class="glide__slides">
-					{% for p in projects|slice:"4" %}
-					<li>
-						<a class='item glide__slide' href="{% url 'works' p.slug %}" data-slug='{{p.slug}}'>
-							<div class="block-img">
-								<!-- <span class="number">0{{forloop.counter}}</span> -->
-								<img class="img-project" src="{{p.img_header.image.url}}">
-								<!--<span class="name-project">{{p.title}}</span>-->
-							</div>
-						</a>
-					</li>
+	<div class="d-none d-sm-flex flex-column align-items-center col-md-4 col-lg-4 slider-project">
+		<div class='mobile-block'>
+			<div class='mobile-image'></div>
+			<div class="glide index">
+				<div data-glide-el="track" class="glide__track">
+					<ul class="glide__slides">
+						{% for p in projects|slice:"4" %}
+							<li>
+								<a class='item glide__slide' href="{% url 'works' p.slug %}" data-slug='{{p.slug}}'>
+									<div class="block-img" style="background: url({{p.image.image.url}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+									</div>
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<!-- <div class="glide__bullets" data-glide-el="controls[nav]">
+					{% for h in projects|slice:"4" %}
+						<button class="glide__bullet" data-glide-dir="={{ forloop.counter0 }}"></button>
 					{% endfor %}
-				</ul>
-			</div>
-			<div class="glide__bullets" data-glide-el="controls[nav]">
-				{% for h in projects|slice:"4" %}
-					<button class="glide__bullet" data-glide-dir="={{ forloop.counter0 }}"></button>
-				{% endfor %}
+				</div> -->
 			</div>
 		</div>
 		<div class="all-works">

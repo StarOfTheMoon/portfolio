@@ -6,10 +6,22 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 
 
-
-# Create your models here.
 class Image(models.Model):
+	TYPES = (
+		("S","Slider"),
+		("H","Home")
+	)
 	image = models.ImageField()
+	type = models.CharField("Type", max_length=1, choices=TYPES, default="S")
+
+	class Meta :
+		abstract = True
+
+class Image(Image):
+	project_id = models.ForeignKey("Project", related_name="image", null=True)
+
+	class Meta :
+		verbose_name = "Image"
 
 	def __str__(self):
 		return str(self.image)
@@ -37,9 +49,7 @@ class Tag(models.Model):
 class Project(models.Model):
 	title = models.CharField("titre",max_length=250)
 	subtitle = models.CharField("sous titre", max_length=250, null=True, blank=True)
-	description = models.CharField(max_length=450)
-	img_header = models.ForeignKey(Image, related_name='imgheader')
-	img_others = models.ManyToManyField(Image, related_name='imgothers', blank=True)
+	description = models.TextField(max_length=450)
 	tags = models.ManyToManyField(Tag, blank=True)
 	link = models.URLField("lien", blank=True)
 	slug = models.SlugField(default=None, null=True, blank=True)

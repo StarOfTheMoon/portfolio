@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-from .models import Tag, Image, Project
+from .models import *
 
 # Register your models here.
 admin.site.site_title = 'Portfolio Sarah Admin'
@@ -30,12 +30,18 @@ class TagInline(admin.TabularInline):
 	verbose_name = u"Tag"
 	verbose_name_plural = u"Tags"
 
+class ImageInline(admin.TabularInline):
+	extra = 0
+	model = Image
+	verbose_name = u"Image"
+	verbose_name_plural = u"Images"
 
 
 class ProjectAdmin(LanguageTabbedAdmin):
 	model = Project
 	inlines = (
-       TagInline,
+		TagInline,
+		ImageInline
     )
 	exclude = ("tags", )
 

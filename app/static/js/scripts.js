@@ -12,9 +12,7 @@ let home_slider = new Glide('.glide.index', {
 	startAt: 0,
 	perView: 1,
 	gap: 0,
-	autoplay: 2000,
-	width: 400,
-	wrapperWidth: 400
+	autoplay: 2000
 })
 
 
