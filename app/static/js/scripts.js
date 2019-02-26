@@ -18,13 +18,24 @@ let home_slider = new Glide('.glide.index', {
 
 $(window).on('load', function(){
 	// split title in letters with space
-	title = document.querySelector('.title-page');
-	if(title) {
-	    charming(title);
-	}
+	// title = document.querySelector('.title-page');
+	// if(title) {
+	//     charming(title);
+	// }
 	loadContent();
 	countProject();
+	clickOnProject();
 });
+
+function clickOnProject() {
+	let mobile_overlay = $('.mobile-image');
+	mobile_overlay.on('click', function() {
+		project = $(this).siblings().find('li.glide__slide--active').children('a');
+		slug = project.attr('data-slug');
+		project[0].click()
+		changeURL(slug);
+	})
+}
 
 function countProject() {
 	value = project_slider.index + 1;
