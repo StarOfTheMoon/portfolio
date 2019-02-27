@@ -4,7 +4,7 @@
 
 {% block content %}
 <section class="row">
-	<div class="offset-1 col-8 projects">
+	<div class="offset-1 col-8 projects-content">
 		<div class="glide projects-sl">
 			<div class="glide__arrows" data-glide-el="controls">
 				<button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span class="icon-back"></span></button>
@@ -43,8 +43,8 @@
 		</div>
 	</div>
 	<div class="col-3 links-content">
-		<a class="nav-link" href="{% url 'about' %}"><span class="icon-right-arrow"></span> About</a>
-		<a class="nav-link disabled"><span class="icon-right-arrow"></span> Contact</a>
+		<a class="nav-link" href="{% url 'about' %}"><span class="icon-right-arrow"></span> {% trans 'About' %}</a>
+		<a class="nav-link" href="{% url 'contact' %}"><span class="icon-right-arrow"></span> {% trans 'Contact' %}</a>
 	</div>
 </section>
 {% endblock %} 

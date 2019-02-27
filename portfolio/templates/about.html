@@ -7,13 +7,13 @@
 	<div class="offset-1 col-5 about d-flex">
 		<div class="">
 			<p>
-				I'm Sarah Abderemane, I'm 25. I am currently studying IT at The IPSSI Institute in Paris, France.
+				{% trans "I'm Sarah Abderemane, I'm 25. I am currently studying IT at The IPSSI Institute in Paris, France." %}
 			</p>
 			<p>
-				Previously I have completed a Bachelors in General Business and am turing towards the field of IT due to my passion for new and hi-tech technologies. I am an autodidact in integration amongst a variety of other web skills. I chose to focus on this area of study in order to improve myself and to become a web developer, particularly in front-end development. My Business Bachelors still help me as a developer and it permits me to be multipurpose.
+				{% trans "Previously I have completed a Bachelors in General Business and am turing towards the field of IT due to my passion for new and hi-tech technologies. I am an autodidact in integration amongst a variety of other web skills. I chose to focus on this area of study in order to improve myself and to become a web developer, particularly in front-end development. My Business Bachelors still help me as a developer and it permits me to be multipurpose." %}
 			</p>
 			<p>
-				You can read my full resume by clicking here.
+				{% trans 'You can read my full resume by clicking here.' %}
 			</p>
 			<div id="skills" class="skills" role="tablist" aria-multiselectable="true">
 			{% for t in tags %}
@@ -40,8 +40,8 @@
 	</div>
 	<img class="portrait" src="{% static 'img/portrait.png' %}">
 	<div class="offset-2 col-3 links-content">
-		<a class="nav-link" href="{% url 'works' %}"><span class="icon-right-arrow"></span> Works</a>
-		<a class="nav-link disabled"><span class="icon-right-arrow"></span> Contact</a>
+		<a class="nav-link" href="{% url 'works' %}"><span class="icon-right-arrow"></span> {% trans 'Works' %}</a>
+		<a class="nav-link" href="{% url 'contact' %}"><span class="icon-right-arrow"></span> {% trans 'Contact' %}</a>
 	</div>
 </section>
 {% endblock %} 

@@ -6,6 +6,7 @@
 @import "_variables.scss";
 @import "_fonts.scss";
 @import "_works.scss";
+@import "_contact.scss";
 @import "_about.scss";
 @import "_responsive.scss";
 
@@ -66,6 +67,11 @@ section {
   &.about {
     left: calc(0px - 25%);
     transform: rotate(70deg);
+  }
+  &.contact {
+    top: calc(0px + -17%);
+    left: calc(0px - 35%);
+    transform: rotate(10deg);
   }
 }
 .nav-link {
