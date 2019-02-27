@@ -14,6 +14,8 @@ let home_slider = new Glide('.glide.index', {
 	gap: 0,
 	autoplay: 2000
 })
+let csrftoken = getCookie('csrftoken');
+
 
 
 $(window).on('load', function(){
@@ -26,6 +28,26 @@ $(window).on('load', function(){
 	countProject();
 	clickOnProject();
 });
+
+$(document).ready(function() {
+	$('#contact-form').submit(function(event){
+		event.preventDefault();
+		let post_url = $(this).attr("action"); //get form action url
+		let request_method = $(this).attr("method"); //get form GET/POST method
+		let form_data = $('#contact-form').serialize(); //Encode form elements for submission
+		console.log(form_data)
+		let csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+		$.ajax({
+			url : post_url,
+			type: request_method,
+			headers: {'X-CSRFToken': csrftoken},
+			data : form_data 
+		}).done(function(response){ 
+			$("#contact-form").html(response);
+		});
+	})
+})
 
 function clickOnProject() {
 	let mobile_overlay = $('.mobile-image');
@@ -116,7 +138,6 @@ function getCookie(name) {
     return cookieValue;
 }
 
-var csrftoken = getCookie('csrftoken');
 
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection

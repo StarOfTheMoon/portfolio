@@ -1,0 +1,17 @@
+<form id='contact-form' action="{% url 'contact-ajax' %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group {% if field.errors %}error{% endif %}"> 
+            {% for error in field.errors %}
+                <div class="invalid-feedback">{{ error|escape }}</div>
+            {% endfor %}
+            {% if field.label == "Message" %}
+            <textarea class="form-control {% if field.errors %}is-invalid{% endif %}" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder=" " value='{{ field.value }}'></textarea>
+            {% else %}
+            <input class="form-control {% if field.errors %}is-invalid{% endif %}" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder=" " value='{{ field.value }}' />
+            {% endif %}
+            <label class="form-control-label" for='{{ field.id_for_label }}'>{{ field.label }}</label>       
+        </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>

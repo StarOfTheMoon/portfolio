@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^projects/$', views.works, name='works'),
     url(r'^projects/(?P<work>[-\w]+)/$', views.works, name='works'),
-    #url(r'^projects/(?P<slug>[-\w]+)$', views.works_detail, name='works-detail'),
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^contact_ajax/$', views.contact_ajax, name='contact-ajax'),
 ]

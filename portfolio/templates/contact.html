@@ -3,11 +3,9 @@
 {% load static %}
 
 {% block content %}
-<section class="row align-items-center about-content">
-	<div class="offset-1 col-5 about d-flex">
-		<form action="" method="post">
-            
-        </form>
+<section id='section-contact' class="row align-items-center about-content">
+	<div class="offset-1 col-4 about d-flex">
+		{% include 'form.html' with form=form %}
 	</div>
 	<div class="offset-2 col-3 links-content">
 		<a class="nav-link" href="{% url 'works' %}"><span class="icon-right-arrow"></span> Works</a>
@@ -15,3 +13,4 @@
 	</div>
 </section>
 {% endblock %} 
+
